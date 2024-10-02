@@ -23,6 +23,9 @@ public class TH_PO2 extends JFrame implements ActionListener  {
     private JFormattedTextField lodgingCosts;
 
     private JTextField totalCosts;
+    private JTextField expensesCosts;
+    private JTextField paidCosts;
+    private JTextField moneySaved;
 
     private JButton calcButton;
     private JLabel dayLabel;
@@ -33,6 +36,10 @@ public class TH_PO2 extends JFrame implements ActionListener  {
     private JLabel taxiLabel;
     private JLabel seminarLabel;
     private JLabel lodgingLabel;
+    private JLabel reimburseLabel;
+    private JLabel mustPayLabel;
+    private JLabel moneySavedLabel;
+    private JLabel totalLabel;
 
     TH_PO2(){
 
@@ -47,6 +54,10 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         taxiLabel = new JLabel("Amount of taxi charges if any");
         seminarLabel = new JLabel("Conference or seminar registration fees if any");
         lodgingLabel = new JLabel("Lodging charges, per night");
+        reimburseLabel = new JLabel("Total allowable expenses for the trip");
+        mustPayLabel = new JLabel("The excess that must be paid by the businessperson, if any");
+        moneySavedLabel = new JLabel("The amount saved by the businessperson if the expenses are under the total allowed");
+        totalLabel = new JLabel("Total expenses:");
         //create the claculate button
         calcButton = new JButton("Calculate Costs");
         calcButton.addActionListener(this);
@@ -55,44 +66,54 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         totalCosts = new JTextField(20);
         totalCosts.setEditable(false);
 
+        expensesCosts = new JTextField(20);
+        expensesCosts.setEditable(false);
+
+        paidCosts = new JTextField(20);
+        paidCosts.setEditable(false);
+
+        moneySaved = new JTextField(20);
+        moneySaved.setEditable(false);
+
+
         numDays = new JFormattedTextField(NumberFormat.getNumberInstance());
         numDays.setEditable(true);
-        numDays.setText("$ - -");
+        numDays.setText("");
         numDays.setColumns(15);
 
         costAirfare = new JFormattedTextField(NumberFormat.getNumberInstance());
         costAirfare.setEditable(true);
-        costAirfare.setText("$ - -");
+        costAirfare.setText("");
         costAirfare.setColumns(15);
 
         rentalFee = new JFormattedTextField(NumberFormat.getNumberInstance());
         rentalFee.setEditable(true);
-        rentalFee.setText("$ - -");
+        rentalFee.setText("");
         rentalFee.setColumns(15);
 
         milesDriven = new JFormattedTextField(NumberFormat.getNumberInstance());
         milesDriven.setEditable(true);
-        milesDriven.setText("$ - -");
+        milesDriven.setText("");
         milesDriven.setColumns(15);
 
         parkingFee = new JFormattedTextField(NumberFormat.getNumberInstance());
         parkingFee.setEditable(true);
-        parkingFee.setText("$ - -");
+        parkingFee.setText("");
         parkingFee.setColumns(15);
 
         taxiCharges = new JFormattedTextField(NumberFormat.getNumberInstance());
         taxiCharges.setEditable(true);
-        taxiCharges.setText("$ - -");
+        taxiCharges.setText("");
         taxiCharges.setColumns(15);
 
         seminarFee  = new JFormattedTextField(NumberFormat.getNumberInstance());
         seminarFee.setEditable(true);
-        seminarFee.setText("$ - -");
+        seminarFee.setText("");
         seminarFee.setColumns(15);
 
         lodgingCosts = new JFormattedTextField(NumberFormat.getNumberInstance());
         lodgingCosts.setEditable(true);
-        lodgingCosts.setText("$ - -");
+        lodgingCosts.setText("");
         lodgingCosts.setColumns(15);
 
         //using the gridbaglayout to position components
@@ -145,6 +166,33 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         layoutConst.gridx = 0;
         layoutConst.gridy = 7;
         add(lodgingLabel, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 8;
+        add(totalLabel, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 9;
+        add(reimburseLabel, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 10;
+        add(mustPayLabel, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 0;
+        layoutConst.gridy = 11;
+        add(moneySavedLabel, layoutConst);
+
+
+
         
         // adding the formatted textfields
 
@@ -198,8 +246,8 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         //adding the calculate button
         layoutConst = new GridBagConstraints();
         layoutConst.insets =  new Insets(10, 10, 10, 10);
-        layoutConst.gridx = 0;
-        layoutConst.gridy = 8;
+        layoutConst.gridx = 1;
+        layoutConst.gridy = 13;
         add(calcButton, layoutConst);
         //addding the totalCosts textField to display the expenses
         layoutConst = new GridBagConstraints();
@@ -207,10 +255,30 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         layoutConst.gridx = 2;
         layoutConst.gridy = 8;
         add(totalCosts, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 9;
+        add(expensesCosts, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 10;
+        add(paidCosts, layoutConst);
+
+        layoutConst = new GridBagConstraints();
+        layoutConst.insets =  new Insets(10, 10, 10, 10);
+        layoutConst.gridx = 2;
+        layoutConst.gridy = 11;
+        add(moneySaved, layoutConst);
+
     }
 
     //use formatted fields getValue method store for calculation
     @Override
+    
     public void actionPerformed(ActionEvent e) {
         double day = ((Number) numDays.getValue()).doubleValue();
         double air = ((Number) costAirfare.getValue()).doubleValue();
@@ -220,21 +288,34 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         double taxi = ((Number) taxiCharges.getValue()).doubleValue();
         double seminar = ((Number) seminarFee.getValue()).doubleValue();
         double lodging = ((Number) lodgingCosts.getValue()).doubleValue();
-        //calculates the reimbursement and total costs
-        double reimbursementCost= day * 37 + Math.min(parking, day * 10) + Math.min(taxi, day * 20)
-        + Math.min(lodging, day * 95.40) + miles * 0.27;
+        //calculates the reimbursement and max cost
+        double allowableParking = Math.min(parking, day * 10);
+        double allowableTaxi = Math.min(taxi, day * 20);
+        double allowableLodge = Math.min(lodging, day * 95.40);
+        double allowableMeals = day * 37;
 
-        double maxCost = (day + air + rental + miles + parking + taxi + seminar +  lodging);           
+        double reimbursementCost = (allowableParking + allowableLodge + allowableMeals + allowableTaxi + (miles * 0.27));
+        double maxCost = (air + rental + (miles * 0.27) + parking + taxi + seminar +  (lodging * day));           
 
-        if (day >= 0.0 && air >= 0 && rental >=0 && miles >= 0 && parking >=0 && taxi >= 0 && seminar >=0 && lodging >= 0) {
-            if (maxCost > reimbursementCost){
-                totalCosts.setText(Double.toString(maxCost - reimbursementCost));
+        
+        if (maxCost > reimbursementCost){
+                totalCosts.setText(Double.toString(maxCost));
+                expensesCosts.setText(Double.toString(reimbursementCost));
+                paidCosts.setText(Double.toString(maxCost - reimbursementCost));
+                
             }
-          }
-          //ensures the user selects a positive number 
-         else {
-            JOptionPane.showMessageDialog(this, "Enter a positive number!");
-         }
+        if(reimbursementCost > maxCost){
+                totalCosts.setText(Double.toString(maxCost));
+                expensesCosts.setText(Double.toString(reimbursementCost));
+                moneySaved.setText(Double.toString(reimbursementCost - maxCost));
+            }
+          
+         if(day < 0 || air < 0 || rental < 0 || miles < 0 || parking < 0 || taxi < 0 || seminar < 0 || lodging < 0){
+            JOptionPane.showMessageDialog(this, "Please fill out all fields with a positive number!");
+         } 
+    
+         
+         
   }
     //creates frame, enables visibility, automatic sizing, and exit operation
      public static void main(String[] args){

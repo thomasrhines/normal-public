@@ -9,8 +9,8 @@ For Assignment 2 (the travel expenses):
 I believe there is probably a better way to handle the layouts, but I decided to use GridBagLayout as it was in Zybooks and in Assignment 1.
 I eventually saw that you could run a for loop through the components and place them that way, but I discovered that after I had already completed the program.
 The program uses formatted text fields instead of regular ones; 
-I chose to use them just to try it and to have an easier way of throwing an exception to the user for a bad value input.
-For the text fields I wasn't sure what to put as the default text. I went with "$ _ _" which will require the user to overide it when inputting a value.
+I chose to use them just to try it and to have an easier way of throwing an exception to the user for a negative number.
+For the text fields I wasn't sure what to put as the default text. I went with nothing as to make it more seamless on the user.
 
 In General:
 I didn't format it with the honor coded and the details like you said in class.
