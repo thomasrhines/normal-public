@@ -307,6 +307,7 @@ public class TH_PO2 extends JFrame implements ActionListener  {
         if(reimbursementCost > maxCost){
                 totalCosts.setText(Double.toString(maxCost));
                 expensesCosts.setText(Double.toString(reimbursementCost));
+                paidCosts.setText(Double.toString(maxCost - reimbursementCost));
                 moneySaved.setText(Double.toString(reimbursementCost - maxCost));
             }
           
