@@ -1,0 +1,14 @@
+I thought the assignment was due tonight but  during class I saw that it was actually due yesterday. 
+I had already completed both assignments a few days ago, 
+but I hadn't submitted them yet because I wanted to experiment with formatting the output and adding an alert popup. 
+I decided to submit it as is because it functions properly, and I wanted to turn it in as soon as possible.
+
+For Assignment 1:
+
+I took the salary calculator from the JavaFX section on Zybooks and modified it to calculate and display tax, tip, and the total.
+
+For Assignment 2:
+
+I saw in Zybooks that other JavaFX components, such as checkboxes and radio buttons, could be used. 
+I looked up the syntax and how to implement them, then used both for registration and optional choices. 
+Afterward, I checked if they were selected and set the button to  display the calculation.
